@@ -3,23 +3,7 @@
  const getMethods = require('./routes/appRoutes/fetch');
 
  const mainMenuOptions = () => {
-     console.log(`
-      _  _  _                      _                      
-     (_)(_)(_)                    (_)
-     (_) _      _     _   _  _    (_)   _  _    _    _    _       _ 
-     (_)(_)    (_)   (_) (_)(_)   (_)  (_)(_)  (_)  (_)  (_)()   (_)()
-     (_)       (_)(_)(_) (_)  (_) (_) (_)  (_) (_)  (_) (_) /   (_) /
-     (_)(_)(_) (_)   (_) (_)(_)   (_)  (_)(_)    (_)(_)  (_)(_)  (_)(_)
-                         (_)                        (_)  
-                         (_)                        (_)
-        _     _                                            
-       (_)   (_)                    
-       (_)(_)(_)   _  _      _  _     _  _     _  _     _       _      
-       (_)   (_)  (_)(_)|  |(_)(_)   (_)(_)|  (_)(_)|  (_)()  |(_)()
-       (_)   (_) (_)  (_)  (_)  (_) (_)  (_) (_)  (_) (_) /   (_)
-       (_)   (_)  (_)(_)|  (_)  (_)  (_)(_)|   (_)(_)  (_)(_) (_)
-                                                  (_) 
-                                              (_)(_)`);
+     
     return inquirer.prompt([ 
         {
          type: 'list',
@@ -220,6 +204,7 @@ const updateEmployee = (data) => {
         if(answer.choice === 0){
             let data = getMethods.getAll('departments');
             data.then(response =>{
+                console.log('\n');
                 console.table(response);
             });
           init();
@@ -227,6 +212,7 @@ const updateEmployee = (data) => {
         else if(answer.choice === 1){
             let data = getMethods.getAll('roles');
           data.then(response =>{
+              console.log('\n');
               console.table(response);
           });
             init();
@@ -234,6 +220,7 @@ const updateEmployee = (data) => {
         else if(answer.choice === 2){
             let data = getMethods.getAll('employees');
           data.then(response =>{
+              console.log('\n');
               console.table(response);
           });
             init();

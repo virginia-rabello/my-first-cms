@@ -4,7 +4,10 @@ const db = require('../../db/connection');
 
   // Get all roles
   router.get('/roles', (req, res) => {
-    const sql = `SELECT * FROM roles`;
+    const sql = `SELECT roles.id AS id, roles.title AS title, roles.salary AS salary, departments.name as departments
+    FROM roles
+    INNER JOIN departments ON departments.id = roles.department_id
+    ORDER BY id;`;
   
     db.query(sql, (err, rows) => {
       if (err) {
